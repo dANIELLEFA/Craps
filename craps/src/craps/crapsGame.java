@@ -22,7 +22,7 @@ public class crapsGame
 					{
 						
 					}
-// sddfh
+// sddf
 			}
 
 	}
