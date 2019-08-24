@@ -15,7 +15,7 @@ public class crapsGame
 				System.out.println("You will start off with $100. If you don't have any money the game will stop. ");
 				int account = 100;
 				boolean playing = true;
-				while(playing = true || account == 0)
+				while(playing || account == 0)
 				{
 				
 					System.out.println("How much will you be betting? You can't bet more than 100 a round.");
