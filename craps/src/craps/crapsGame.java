@@ -71,7 +71,7 @@ public class crapsGame
 						System.out.println("Goodbye!");
 						playing = false;
 						inRound = false;
-						//tl
+						
 						
 					}
 					}
@@ -84,11 +84,11 @@ public class crapsGame
 					int dice3 = (int)(Math.random()*6+1);
 					int dice4 = (int)(Math.random()*6+1);
 					int totalDice2 = dice3 + dice4;
-					System.out.println("You rolled a " + dice3 + " and " + dice4 + " equalling " + totalDice2 + ".");
+					System.out.println("You rolled a " + dice3 + " and " + dice4 + " for a total of " + totalDice2 + ".");
 					if(totalDice2 ==7)
 					{
 						account = account - bet;
-						System.out.println("Congrats! You Lost! Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
+						System.out.println("Sorry, but you lose" +name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
 						int answer1 = userInput2.nextInt();
 						if(answer1 == 1)
 						{
@@ -112,7 +112,7 @@ public class crapsGame
 					else if (totalDice == totalDice2)
 					{
 						account = account + bet;
-						System.out.println("Congrats!");
+						System.out.println("You win" + name+ "!");
 						System.out.println(" Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
 						int answer2 = userInput2.nextInt();
 						if(answer2 == 1)
