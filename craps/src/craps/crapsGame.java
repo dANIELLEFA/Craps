@@ -15,12 +15,16 @@ public class crapsGame
 				System.out.println("You will start off with $100. If you don't have any money the game will stop. ");
 				int account = 100;
 				boolean playing = true;
-				while(playing || account == 0)
+				while(playing )
 				{
 				
 					System.out.println("How much will you be betting? You can't bet more than 100 a round.");
 					int bet = userInput1.nextInt();
-					
+					if(account == 0) 
+					{
+						System.out.println("You have no more money and can't play anymore.");
+						playing = false;
+					}
 				
 				boolean inRound = true;
 				while (inRound)
@@ -32,7 +36,7 @@ public class crapsGame
 				if (totalDice == 7 || totalDice==11)
 					{
 					 account = account + bet;
-						System.out.println("Congrats! you won! Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
+						System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". You win, " + name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
 						
 						int answer0 = userInput2.nextInt();
 						if(answer0 == 1)
@@ -53,8 +57,8 @@ public class crapsGame
 				else if( totalDice == 2 || totalDice == 12)
 					{
 					account = account - bet;
-					System.out.println("You Lose!");
-					System.out.println("Congrats! You Lost! Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
+					
+					System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". Sorry, but you lose, " + name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
 					int answer = userInput2.nextInt();
 					if(answer == 1)
 					{
@@ -76,7 +80,7 @@ public class crapsGame
 					boolean rolling = true;
 					while (rolling)
 					{
-					System.out.println("Your point is "+ totalDice+ ". Let's roll again! Good luck!");
+					System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". ");
 					int dice3 = (int)(Math.random()*6+1);
 					int dice4 = (int)(Math.random()*6+1);
 					int totalDice2 = dice3 + dice4;
