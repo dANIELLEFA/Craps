@@ -71,7 +71,7 @@ public class crapsGame
 						System.out.println("Goodbye!");
 						playing = false;
 						inRound = false;
-						//t
+						//tl
 						
 					}
 					}
