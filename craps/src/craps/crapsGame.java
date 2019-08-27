@@ -71,6 +71,7 @@ public class crapsGame
 					dice(); 
 					whatRolled();
 					ifWonImmediately();
+					
 					ifLostImmediately();
 					
 					rolling();
@@ -92,10 +93,13 @@ public class crapsGame
 			if (totalDice == 7 || totalDice==11)
 				{
 				 account = account + bet;
-					System.out.println("You win, " + name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
+					System.out.println("You win, " + name + ".");
+					
 					answer();
-					rolling = false;
 		}
+			rolling = false;
+			
+			inRound = false;
 		}
 		public static void ifLostImmediately()
 		{
@@ -104,9 +108,12 @@ public class crapsGame
 					account = account - bet;
 					
 					System.out.println(" Sorry, but you lose, " + name + ".");
+					
 					answer();
-					rolling = false;
 		}
+			 rolling = false;
+				
+				inRound = false;
 		}
 		public static void answer()
 		{
@@ -115,7 +122,9 @@ public class crapsGame
 				if(answer == 1)
 				{
 					System.out.println("Ok. Have Fun!");
+					rolling = false;
 					inRound = false;
+					
 				
 					
 				}
@@ -127,14 +136,13 @@ public class crapsGame
 					
 				}
 			}
-		public static void info()
-		{
-			System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". ");
-		}
+		
 		public static void rolling()
 		{
-			info();
+			if ( ! (totalDice == 7 || totalDice == 11 || totalDice == 2 || totalDice == 12) )
+				{
 			rolling = true;
+			
 			while (rolling)
 			{
 				
@@ -142,6 +150,7 @@ public class crapsGame
 				lost();
 				won();
 			}
+				}
 		}
 		public static void rollingDice()
 		{
