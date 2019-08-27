@@ -18,10 +18,15 @@ public class crapsGame
 		static int totalDice2;
 		static boolean rolling;
 		static int answer;
-		public static void craps()
-		{
+		public static void main(String[] args)
+			{
+			greetPlayer();
+			information();
+			whilePlaying();
 			
-		}
+			
+		
+			}
 		public static void greetPlayer()
 		{
 			
@@ -65,6 +70,10 @@ public class crapsGame
 				 {
 					dice(); 
 					whatRolled();
+					ifWonImmediately();
+					ifLostImmediately();
+					
+					rolling();
 				 }
 				
 		}
@@ -84,8 +93,8 @@ public class crapsGame
 				{
 				 account = account + bet;
 					System.out.println("You win, " + name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
-					
-					
+					answer();
+					rolling = false;
 		}
 		}
 		public static void ifLostImmediately()
@@ -94,11 +103,14 @@ public class crapsGame
 					{
 					account = account - bet;
 					
-					System.out.println(" Sorry, but you lose, " + name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
+					System.out.println(" Sorry, but you lose, " + name + ".");
+					answer();
+					rolling = false;
 		}
 		}
 		public static void answer()
 		{
+			System.out.println(" Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
 			 answer = userInput2.nextInt();
 				if(answer == 1)
 				{
@@ -115,111 +127,61 @@ public class crapsGame
 					
 				}
 			}
-		
-		public static void main(String[] args)
+		public static void info()
+		{
+			System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". ");
+		}
+		public static void rolling()
+		{
+			info();
+			rolling = true;
+			while (rolling)
 			{
 				
+				rollingDice();
+				lost();
+				won();
+			}
+		}
+		public static void rollingDice()
+		{
+			 dice3 = (int)(Math.random()*6+1);
+			 dice4 = (int)(Math.random()*6+1);
+			 totalDice2 = dice3 + dice4;
+			 System.out.println("You rolled a " + dice3 + " and " + dice4 + " for a total of " + totalDice2 + ".");
+			
+		}
+		public static void lost()
+		{
+			if(totalDice2 ==7)
+			{
+				account = account - bet;
+				System.out.println("Sorry, but you lose " +name + ". ");
 				
+					rolling = false;
+					inRound = false;
+					 answer();
 				
-				
-				 
-				while(playing )
-				{
-				
-					
-					
-				
-				
-				while (inRound)
-				{
-				
-				
-				
-				
-					int answer = userInput2.nextInt();
-					if(answer == 1)
-					{
-						System.out.println("Ok. Have Fun!");
-						inRound = false;
-						
-					}
-					else if (answer == 2)
-					{
-						System.out.println("Goodbye!");
-						playing = false;
-						inRound = false;
-						
-						
-					}
-					}
-				else
-				{
-					 rolling = true;
-					while (rolling)
-					{
-					System.out.println("You rolled a "+ dice1+ " and a " + dice2+ " for a total of " + totalDice + ". ");
-					 dice3 = (int)(Math.random()*6+1);
-					 dice4 = (int)(Math.random()*6+1);
-					 totalDice2 = dice3 + dice4;
-					System.out.println("You rolled a " + dice3 + " and " + dice4 + " for a total of " + totalDice2 + ".");
-					if(totalDice2 ==7)
-					{
-						account = account - bet;
-						System.out.println("Sorry, but you lose" +name + ". Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
-						int answer1 = userInput2.nextInt();
-						if(answer1 == 1)
-						{
-							System.out.println("Ok. Have Fun!");
-							rolling = false;
-							inRound = false;
-							
-						}
-						else if (answer1 == 2)
-						{
-							System.out.println("Goodbye!");
-							playing = false;
-							rolling = false;
-							
-							
-							inRound = false;
-							
-						}
-						
-					}
-					else if (totalDice == totalDice2)
+			}
+		}
+		public static void won()
+		{
+			
+				 if (totalDice == totalDice2)
 					{
 						account = account + bet;
-						System.out.println("You win" + name+ "!");
-						System.out.println(" Do you want to play again? 1) yes 2) no. You have " + account + " in your account.");
-						int answer2 = userInput2.nextInt();
-						if(answer2 == 1)
-						{
-							System.out.println("Ok. Have Fun!");
-							rolling = false;
-							inRound = false;
-							
-						}
-						else if (answer2 == 2)
-						{
-							System.out.println("Goodbye!");
-							playing = false;
-							rolling = false;
-							
-							inRound = false;
-							
-						}
+						System.out.println("You win " + name+ "!");
+						rolling = false;
+						inRound = false;
+						 answer();
 					}
-					else
-					{
-						System.out.println("Continue rolling. ");
-					}
-					
-					}
-				}
-				}
-				
-				}
-
-			}
-
+			
+		}
+		
+		
 	}
+				
+				
+			
+
+	
