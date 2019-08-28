@@ -139,7 +139,7 @@ public class crapsGame
 		
 		public static void rolling()
 		{
-			if ( ! (totalDice == 7 || totalDice == 11 || totalDice == 2 || totalDice == 12) )
+			if ( ! (totalDice == 7 || totalDice == 11 || totalDice == 2 || totalDice == 12) ) // good job D
 				{
 			rolling = true;
 			
